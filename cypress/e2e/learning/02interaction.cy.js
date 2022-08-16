@@ -65,7 +65,7 @@ describe("interacting with input field", () => {
     cy.contains("https://www.manuelcasares.com");
   });
 
-  it.only("type bitfumes on the search input field and asset suggestion and press enter", () => {
+  it("type bitfumes on the search input field and asset suggestion and press enter", () => {
     cy.visit("https://www.google.com");
     //click to disable PopUp
     cy.get("#W0wltc > .QS5gu").click();
