@@ -36,4 +36,16 @@ describe("interacting with input field", () => {
     googleLogo.click();
     cy.get(dropdownMenu).should("not.be.visible");
   });
+
+  it("click again on imput field, this time I simplify the dropmenu selection", () => {
+    //click input field
+    cy.get("[name='q']").click();
+    //select dropdown and check that i vissible and Has Amazon in
+    cy.get(".aajZCb").as("dropDownMenu");
+    cy.get("@dropDownMenu").should("be.visible").contains("Amazon");
+    //click in the google logo
+    cy.get(".LLD4me").click();
+    //dropdown shouldn't be visible
+    cy.get("@dropDownMenu").should("not.be.visible");
+  });
 });
