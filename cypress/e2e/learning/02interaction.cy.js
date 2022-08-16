@@ -69,7 +69,9 @@ describe("interacting with input field", () => {
     cy.visit("https://www.google.com");
     //click to disable PopUp
     cy.get("#W0wltc > .QS5gu").click();
-    cy.get("[name='q']").clear().type("manuel casares piano {enter}");
+    cy.get("[name='q']")
+      .clear()
+      .type("manuel casares piano {enter}", { delay: 100 });
 
     cy.contains("https://www.manuelcasares.com");
     cy.get('[href="https://www.manuelcasares.com/"] > .LC20lb').click();
