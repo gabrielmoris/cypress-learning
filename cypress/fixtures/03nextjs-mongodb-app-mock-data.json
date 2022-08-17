@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "_id": "62fba5ea5fe8892411295471",
+      "content": "I am a mocked test content fron cypres, YEAH",
+      "creatorId": "62fba5da5fe8892411295470",
+      "createdAt": "2022-08-16T14:12:58.414Z",
+      "creator": {
+        "_id": "62fba5da5fe8892411295470",
+        "profilePicture": null,
+        "name": "cypres!!",
+        "username": "hackerman",
+        "bio": ""
+      }
+    },
+    {
+      "_id": "62fba5ea5fe889werrtrqetr",
+      "content": "I am another mocked test content!!!",
+      "creatorId": "62fba5da5fe8892411295470",
+      "createdAt": "2022-09-16T12:12:34.414Z",
+      "creator": {
+        "_id": "62fba5da5re5892411295470",
+        "profilePicture": null,
+        "name": "Hola!",
+        "username": "hackedman",
+        "bio": "piopio"
+      }
+    }
+  ]
+}
