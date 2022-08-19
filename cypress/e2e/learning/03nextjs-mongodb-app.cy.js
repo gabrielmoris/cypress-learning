@@ -3,7 +3,7 @@
 describe("test feeds ae available", () => {
   let baseUrl;
   before(() => {
-    baseUrl = "http://localhost:3000";
+    baseUrl = Cypress.env("baseUrl");
   });
 
   beforeEach(() => {
@@ -17,34 +17,29 @@ describe("test feeds ae available", () => {
     cy.visit(`${baseUrl}/feed`);
   });
   it("counts the feed", () => {
-    cy.get(".PostList_root__Cj_24")
-      .find(".Post_root__6WEkA")
-      .should("be.visible")
-      .and("have.length", 2);
+    //cy.posts() is a custom command created in ./cypress/support/commands.js
+    cy.posts().should("have.length", 2);
   });
   it("sign in a user", () => {
-    cy.visit(`${baseUrl}/login`);
-    cy.get("input[type=email]").type("mock@mail.com");
-    cy.get("input[type=password]").type("password");
-    cy.get("form").submit();
+    cy.login(baseUrl);
   });
 
   it("create a post", () => {
-    cy.get(".PostList_root__Cj_24")
-      .find(".Post_root__6WEkA")
-      .should("be.visible")
-      .and("have.length", 2);
+    cy.posts().and("have.length", 2);
     //2. create a post
     cy.intercept("post", `${baseUrl}/api/posts`, {
       body: { content: "I am just writting whatever" },
     });
 
     //this wont be sent to the server, it is just mocked
-    cy.get(".Input_input__fo8G3")
-      .type("writting form cypress")
-      .then(() => {
-        cy.get("form").submit();
-        cy.contains("You have posted successfully");
-      });
+    // cy.get(".Input_input__fo8G3")
+    //   .type("writting form cypress")
+    //   .then(() => {
+    //     cy.get("form").submit();
+    //     cy.contains("You have posted successfully");
+    //   });
+
+    //this is the same as the commented one, but with a custom command done in ./cypress/support/comands.js
+    cy.createPost("I am writting this with a ustom command. COOL!!");
   });
 });

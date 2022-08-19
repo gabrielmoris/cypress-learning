@@ -10,4 +10,8 @@ module.exports = defineConfig({
     excludeSpecPattern: ["**/2-advanced-examples/*", "**/1-getting-started/*"],
     //excludes tests of the specified path can be string or array
   },
+  //this can be here or in cypress.env.json
+  // env: {
+  //   baseUrl: "http://localhost:3000",
+  // },
 });
